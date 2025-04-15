@@ -10,9 +10,122 @@
         <link rel="stylesheet" href="resources/fontawesome-all.min.css">
         <link rel="stylesheet" href="./resources/ol-layerswitcher.css">
         <link rel="stylesheet" href="./resources/qgis2web.css">
-        <title>Farhan Qalbain</title>
+
+        
+        <style>
+        /* style overrides */
+
+        html, body {
+            background-color: #ffffff;
+        }
+        .ol-control > * {
+            background-color: white!important; /*f8f8f8*/
+            color: #181717!important; /*444444*/
+            border-radius: 0px!important;
+        }
+        .ol-attribution a, .gcd-gl-input::placeholder, .search-layer-input-search::placeholder {
+            color: #181717!important; /*444444*/
+        }
+        .search-layer-input-search {
+            background-color: white!important;
+        }
+        .ol-control > *:focus, .ol-control >*:hover { /*hover and focus behaviour for those panels*/
+            /*background-color: rgba(248, 248, 248, 0.7)!important;*/
+            background-color: #c02d2b!important;
+            color: white!important;
+            transition: background-color 300ms, color 150ms;
+        } 
+        .ol-control {
+            background-color: rgba(255,255,255,.4) !important;
+            /*padding: 10px !important;*/
+            border-radius: 0px !important;
+            padding: 0px !important;
+        } 
+        </style>
+
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+
+<!--style for self attribution-->
+        <style>
+        .farhanqalbain{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            padding-left: 8px!important;
+            padding-right: 8px!important;
+            color: #c02d2b;
+            display: block;
+            font-weight: 500;
+        }
+
+        .farhanqalbain ul{
+            list-style: none;
+            margin: unset;
+            padding: unset;
+            display: flex;
+            gap: 10px;
+        }
+
+        .farhanqalbain li{
+            padding-left: 8px;
+            padding-right: 8px;
+            list-style: none;
+        }
+
+        .farhanqalbain a {
+            color: #c02d2b;
+        }
+
+        .farhanqalbain:hover {
+            color: white;
+            background-color: #c02d2b;
+            transition: background-color 300ms, color 150ms;
+        }
+
+        .farhanqalbain:hover a {
+            color: white;
+            transition: 150ms;
+        }
+
+        </style>
+
+        <title>Bandung Architectural Map 1900-1942</title>
     </head>
     <body>
-        <a href="map.html">Bandung Map</a>
+        <div id="map">
+            <div id="popup" class="ol-popup">
+                <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                <div id="popup-content"></div>
+            </div>
+        </div>
+        <script src="resources/qgis2web_expressions.js"></script>
+        <script src="./resources/functions.js"></script>
+        <script src="./resources/ol.js"></script>
+        <script src="./resources/ol-layerswitcher.js"></script>
+        <script src="layers/1931_3.js"></script><script src="layers/1924_4.js"></script><script src="layers/1910_5.js"></script><script src="layers/1904_6.js"></script><script src="layers/1882_7.js"></script><script src="layers/Buildings_8.js"></script>
+        <script src="styles/1931_3_style.js"></script><script src="styles/1924_4_style.js"></script><script src="styles/1910_5_style.js"></script><script src="styles/1904_6_style.js"></script><script src="styles/1882_7_style.js"></script><script src="styles/Buildings_8_style.js"></script>
+        <script src="./layers/layers.js" type="text/javascript"></script> 
+        <script src="./resources/Autolinker.min.js"></script>
+        <script src="./resources/qgis2web.js"></script>
+
+        <!-- add own container/banner for farhanqalbain-->
+         <div class="farhanqalbain">
+            <ul>
+                <li>
+                    <a href="https://www.farhanqalbain.com/research/revisiting-bandung/interactive-map/changelog" target="_blank">changelog</a>
+                         · 
+                    <a>© 2025 farhan qalbain<a>
+                </li>
+            </ul>
+           </div>
+
     </body>
 </html>
