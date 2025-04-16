@@ -1,36 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
 html, body {
     height: 100%;
     padding: 0;
     margin: 0;
-    font-family: sans-serif;
+    font-family: "Roboto Mono", monospace;
     font-size: small;
 }
-
 
 #map {
     width: 100%;
     height: 100%;
 }
 
+/*that boxes on the right, color customization on index.html:19 */
+
 .ol-control {
 	clear: both;
-	box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+	/*box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4); removed shadows*/
 }
 
 .ol-selectable {
 	z-index: 3;
 }
 
-.ol-popup {
+.ol-popup { /* popup container */
     display: none;
     position: absolute;
     background-color: white;
     padding: 15px;
-	border-radius: 10px;
+	border-radius: 0;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+	/*box-shadow: 0 3px 14px rgba(0,0,0,0.4);  removed shadows*/
 }
 
 .ol-popup:after, .ol-popup:before {
@@ -40,38 +43,44 @@ html, body {
     position: absolute;
 }
 
-.ol-popup:after {
+.ol-popup:after { /* triangle on bottom of popup */
     border-top-color: white;
     border-width: 10px;
     left: 50%;
     margin-left: -10px;
+    opacity: 0;
 }
 
-.ol-popup:before {
+.ol-popup:before { /* triangle on bottom of popup */
     border-top-color: #cccccc;
     border-width: 11px;
     left: 50%;
     margin-left: -11px;
+    opacity: 0; /*make 0 opacity rather than delete to not mess up the code */
 }
 
-.ol-popup-closer {
+.ol-popup-closer { /*style of x on top right popup*/
 	text-decoration: none;
     position: absolute;
     top: 4px;
     right: 4px;
     text-align: center;
     width: 19px;
-    color: #999;
+    color: #c02d2b;
     font-family: cursive;
     font-weight: bold;
 }
 
-.ol-popup-closer:after {
+.ol-popup-closer:after { /*'x' on top right of popup*/
     content: "X";
 }
 
 #popup-content {
-	font-size: 12px;
+    /* font was added on top line in body */
+	/* font: 12pt "Roboto Mono", monospace; add custom font to be used in the map, bottom lines are old, way more work.
+    font-size: 12px;
+    font-family: "Roboto Mono", monospace;  add custom font to be used in the map */
+    font-size: 12pt;
     line-height: 1.2;
     margin-top: 5px;
 	max-height: 70vh;
@@ -89,12 +98,17 @@ html, body {
     margin-bottom:0.25em;
 }
 
-#popup-content>ul>li>a {
+#popup-content>ul>li>a {    /* popup title */
+    font-size: 14pt;
+    font-weight: 700; /*check if working*/
+    text-decoration: underline;
+    color: #c02d2b;
     position: relative;
     display: block;
-    padding: 2px;
+    padding-bottom: 10px; /*additional padding*/
+    /*padding: 2px;
     border-bottom: 1px solid #666;
-    font-size: 12.5px;
+    font-size: 18px; was 12.5px*/
 }
 
 #popup-content>table {
@@ -107,16 +121,22 @@ html, body {
 }
 
 th, td {
-    vertical-align: top;
+    vertical-align: middle;
+    padding-top: 15px;
     text-align: left;
-	color: #333;
+	color: #181717; /* change font color */
 }
 
 th {
 	min-width: 100px;
+    font-size: 12pt; /* change font style */
+    font-weight: 400;
 }
 td {
-	min-width: 100px;
+	min-width: 200px;
+    font-size: 10pt;
+    font-weight: 300;
+    padding-left: 30px;
 }
 
 td img {
@@ -182,7 +202,7 @@ td video {
 }
 
 
-.project-title  {
+.project-title  { /* title of the project settings*/
     margin: 1px;
     padding: 5px;
 }
@@ -194,8 +214,8 @@ td video {
     max-width: 50%;
 }
 
-.project-abstract {
-    font: bold 18px 'Lucida Console', Monaco, monospace;
+.project-abstract { /*dont know yet what does this do*/
+    font: bold 18px;
     width: 20px;
     height: 20px;
     display: block;
@@ -209,7 +229,7 @@ td video {
     width: auto;
     height: auto;
     display: block;
-    padding: 3px;
+    padding: 5px;
     cursor: default;
     margin: 1px;
 }
@@ -357,7 +377,10 @@ td video {
 }
 
 .layer-switcher:hover{
+
+    /* the weird opaque background/padding */
 	background-color: rgba(255, 255, 255, .6)!important;
+    transition: background-color 300ms;
 }
 
 .layer-switcher .panel {
@@ -365,7 +388,7 @@ td video {
 	border-radius: unset;
     float: right;
     width: fit-content;
-	margin: 1px;
+	margin: 0;
 	max-height: calc(100vh - 200px);
     box-sizing: unset;
 }
@@ -376,7 +399,7 @@ td video {
 
 .layer-switcher.shown.layer-switcher-activation-mode-click > button {
     position: relative;
-	border-radius: 5px;
+	border-radius: 0;
 	font-size: x-large;
 	font-family: serif;
     z-index: 2;
@@ -408,5 +431,21 @@ td video {
 	} 	
 .bottom-attribution > li {
 	padding-left: 8px !important;
+    padding-right: 8px;
 	list-style: none;	
 	}
+
+    /*change link color*/
+
+.bottom-attribution a{
+     color: #c02d2b;
+}
+
+.bottom-attribution:hover a{
+    color: white;
+    transition: 150ms;
+}
+
+.bottom-attribution a:hover{
+    color: #eaeaea;
+}
